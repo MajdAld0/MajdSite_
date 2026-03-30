@@ -1,0 +1,385 @@
+/* =========================
+   RESET + BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #d9d9d9;
+}
+
+/* =========================
+   SIDE MENU
+========================= */
+.menu-btn {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  font-size: 28px;
+  background: none;
+  color: #b0b0b0;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  background: #0f0f0f;
+  padding: 40px 20px;
+  transition: 0.4s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.menu-name {
+  color: #d9d9d9;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.side-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #d9d9d9;
+  text-decoration: none;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.side-menu a:hover {
+  color: #bfbfbf;
+}
+
+/* =========================
+   HOME SECTION
+========================= */
+.home {
+  position: relative;
+  height: 100vh;
+  background: url('sea-dark.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.home-overlay {
+  position: absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.55);
+  z-index:1;
+}
+
+.home-content {
+  position: relative;
+  display:flex;
+  width:100%;
+  height:100%;
+  z-index:2;
+  padding:0 60px;
+  align-items:center;
+}
+
+.home-left {
+  flex:1;
+}
+
+.home-left h1 {
+  font-size:72px;
+  font-weight:700;
+  line-height:1.15;
+  color:#d9d9d9;
+  display:inline-block;
+}
+
+.underline {
+  height:3px;
+  background:#d9d9d9;
+  margin-top:10px;
+  animation: drawLine 1.6s forwards;
+}
+
+@keyframes drawLine {
+  from{width:0;}
+  to{width:90%;}
+}
+
+.home-right { flex:1; }
+
+/* =========================
+   ABOUT SECTION
+========================= */
+.about {
+  padding: 110px 60px 60px 60px;
+  max-width: 1200px;
+  margin:auto;
+}
+
+.about-container {
+  display:flex;
+  align-items:flex-start;
+  gap:35px;
+  flex-wrap:wrap;
+}
+
+.profile-pic {
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #a0a0a0ec;
+}
+
+.about-info { 
+  max-width:700px; 
+  color:#d9d9d9; 
+  line-height:1.6; 
+}
+
+.details li { 
+  margin-bottom:10px; 
+  color:#d9d9d9; 
+}
+
+.bio { 
+  margin-top:20px; 
+  color:#d9d9d9; 
+}
+
+/* =========================
+   RESUME SECTION
+========================= */
+.resume {
+  padding: 110px 60px 60px 60px;
+  max-width: 1000px;
+  margin: auto;
+  color: #d9d9d9;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #d9d9d9;
+}
+
+/* Timeline Container */
+.resume-container {
+  position: relative;
+  padding-left: 50px; /* مسافة من اليسار للنص */
+}
+
+/* الخط العمودي */
+.resume-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;           /* مكان الخط العمودي */
+  width: 3px;           /* سمك الخط */
+  height: 100%;
+  background-color: #a0a0a0; /* لون الخط العمودي */
+  z-index: 1;            /* تحت النقاط */
+}
+
+/* كل عنصر من عناصر الـ Timeline */
+.resume-item {
+  position: relative;
+  margin-bottom: 50px;
+  padding-left: 30px;   /* مسافة بين النقطة والنص */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+  z-index: 2;
+}
+
+/* النقطة على الخط */
+.resume-item .dot {
+  position: absolute;
+  left: 9px;            /* فوق الخط العمودي */
+  top: 0;
+  width: 18px;
+  height: 18px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  border: 3px solid #a0a0a0; /* يعطي إحساس أنها جزء من الخط */
+  box-sizing: border-box;
+  z-index: 2;           /* فوق الخط */
+}
+
+/* محتوى كل سكشن */
+.resume-item .content {
+  padding-left: 30px;
+}
+
+/* عنوان كل سكشن */
+.resume-item h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #d9d9d9;
+}
+
+/* نصوص المحتوى */
+.resume-item p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #d9d9d9;
+}
+
+
+/* =========================
+   PROJECTS SECTION
+========================= */
+.projects {
+  padding: 110px 60px 60px 60px;
+  max-width: 1200px;
+  margin: auto;
+  color: #d9d9d9;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #d9d9d9;
+}
+
+.project-card p em {
+  color: #a0a0a0;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.project-card p {
+  color: #d9d9d9;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+.project-number {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ff9f1c;
+  margin-bottom: 8px;
+}
+/* =========================
+   CONTACT SECTION
+========================= */
+.contact {
+  padding: 110px 60px 60px 60px;
+  max-width: 1000px;
+  margin: auto;
+  color: #d9d9d9;
+}
+
+.contact-intro {
+  margin-bottom: 40px;
+  line-height: 1.6;
+  color: #d9d9d9;
+}
+
+.contact-methods h2,
+.contact-form h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #d9d9d9;
+}
+
+.contact-methods ul {
+  list-style: none;
+  margin-bottom: 50px;
+}
+
+.contact-methods ul li {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.contact-methods ul li a {
+  color: #ff9f1c;
+  text-decoration: none;
+}
+
+.contact-methods ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Form Styles */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 2px solid #333;
+  background-color: #1a1a1a;
+  color: #d9d9d9;
+  font-size: 16px;
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #888;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff9f1c;
+  color: #0a0a0a;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #e68a00;
+}
